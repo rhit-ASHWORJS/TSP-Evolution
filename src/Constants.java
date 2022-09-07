@@ -1,4 +1,4 @@
-package config;
+
 
 
 /**
@@ -14,11 +14,11 @@ public class Constants {
 	// Properties (user configurable)
 	public static final int RUNS = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.RUNS));
 	public static final int POP_SIZE = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.POP_SIZE));
-	public static final int GENOME_LEN = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.GENOME_LEN));
+	public static final int NUM_POINTS = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.NUM_POINTS));
 	public static final int GENERATIONS = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.GENERATIONS));
 	public static final double MUT_RATE = Double.parseDouble(PropParser.getProperty(ConstantToPropertyMap.MUT_RATE));
-	public static final double RECOM_RATE = Double.parseDouble(PropParser.getProperty(ConstantToPropertyMap.RECOM_RATE));
-
+	public static final String SELECTION_STRATEGY = PropParser.getProperty(ConstantToPropertyMap.SELECTION_STRATEGY);
+	public static final int ELITISM = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.ELITISM));
 	// Constants (not user configurable)
 	public static final String PATH_CONF_FILE = "src/config/default.properties";
 }
