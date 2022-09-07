@@ -5,8 +5,8 @@ public class Map {
 	private ArrayList<Point> points;//List of points, should have IDs from 0 to an integer
 	
 	//Max X and Y value, with the minimums implicitly zero.  Set these to the display size once visualizer is complete.
-	private final int MAX_X = 100;
-	private final int MAX_Y = 100;
+	private final int MAX_X = 500;
+	private final int MAX_Y = 500;
 	
 	
 	public Map() 
