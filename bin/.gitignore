@@ -1,13 +1,1 @@
 /config/
-/configExample/
-/Point.class
-/Map.class
-/Pop.class
-/SeededRandom.class
-/Generation.class
-/EvolutionLoop.class
-/PropParser.class
-/default.properties
-/ConstantToPropertyMap.class
-/Constants.class
-/GenerationFactory.class

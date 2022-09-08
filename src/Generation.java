@@ -43,4 +43,7 @@ public class Generation {
 		System.out.println("Average Distance:"+avgDistance);
 		System.out.println("Worst Distance:"+population.get(population.size()-1).routeDistance());
 	}
+
 }
+
+
