@@ -18,6 +18,7 @@ public class ConstantToPropertyMap {
 	public static final String GENERATIONS="generations";
 	public static final String SELECTION_STRATEGY="selection.strategy";
 	public static final String ELITISM="elitism";
+	public static final String MAP_GENERATION="map.generation";
 
 
 }

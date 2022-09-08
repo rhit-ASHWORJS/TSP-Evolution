@@ -18,7 +18,7 @@ public class FittestRouteViewer extends JComponent{
 	public void setUpViewer() {
 		this.frame = new JFrame();
 		this.frame.setTitle("FittestOrganismViewer");
-		this.frame.setSize(550, 550);
+		this.frame.setSize(500, 550);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setLayout(new BorderLayout());
 	

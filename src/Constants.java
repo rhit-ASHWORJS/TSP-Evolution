@@ -19,6 +19,7 @@ public class Constants {
 	public static final double MUT_RATE = Double.parseDouble(PropParser.getProperty(ConstantToPropertyMap.MUT_RATE));
 	public static final String SELECTION_STRATEGY = PropParser.getProperty(ConstantToPropertyMap.SELECTION_STRATEGY);
 	public static final int ELITISM = Integer.parseInt(PropParser.getProperty(ConstantToPropertyMap.ELITISM));
+	public static final String MAP_GENERATION = PropParser.getProperty(ConstantToPropertyMap.MAP_GENERATION);
 	// Constants (not user configurable)
 	public static final String PATH_CONF_FILE = "src/config/default.properties";
 }

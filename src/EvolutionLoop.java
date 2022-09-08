@@ -21,7 +21,13 @@ public class EvolutionLoop {
 	
 	public static void loopWithMutation()
 	{
-		Map map = new Map(Constants.NUM_POINTS);
+		Map map;
+		if(Constants.MAP_GENERATION.equals("gui")) {
+			MapGUI mapGUI = new MapGUI();
+			map = mapGUI.runViewer();
+		} else {
+			map = new Map(Constants.NUM_POINTS);
+		}
 		Generation initialGen = new Generation(Constants.POP_SIZE, map);
 		
 		ArrayList<Generation> generations = new ArrayList<Generation>();
