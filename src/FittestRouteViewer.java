@@ -70,6 +70,11 @@ public class FittestRouteViewer extends JComponent{
 				g2d.fillOval(p1.x - 5, p1.y - 5, 10, 10);
 				g2d.drawLine(p1.x, p1.y, p2.x, p2.y);
 			}
+			//Finish up the drawing
+			Point p1 = points.get(route[points.size()-1]);
+			Point p2 = points.get(route[0]);
+			g2d.fillOval(p1.x - 5, p1.y - 5, 10, 10);
+			g2d.drawLine(p1.x, p1.y, p2.x, p2.y);
         }
         
         public void setPop(Pop pop) {
