@@ -24,10 +24,12 @@ public class Pop implements Comparable<Pop>{
 	//chance should be a double from 0-1, i.e. 0.45 means 45% chance to mutate
 	private void mutateChance(double chance)
 	{
-		double roll = SeededRandom.rnd.nextDouble();
-		if(roll <= chance)
-		{
-			mutate(1);
+		for(int i=0; i<route.length; i++) {
+			double roll = SeededRandom.rnd.nextDouble();
+			if(roll <= chance)
+			{
+				mutate(1);
+			}
 		}
 	}
 	
