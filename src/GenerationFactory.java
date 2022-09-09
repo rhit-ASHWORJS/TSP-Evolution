@@ -64,8 +64,8 @@ public class GenerationFactory {
 				}
 				Pop parent1 = oldGeneration.population.get(random);	
 				Pop parent2 = oldGeneration.population.get(random2);
-				Pop child1 = parent1.makeCrossOverCopy(parent2).makeMutatedCopy();
-				Pop child2 = parent2.makeCrossOverCopy(parent1).makeMutatedCopy();
+				Pop child1 = parent1.makeCrossOverCopy(parent2, parent1).makeMutatedCopy();
+				Pop child2 = parent2.makeCrossOverCopy(parent1, parent2).makeMutatedCopy();
 				
 					newPops.add(child1);
 					newPops.add(child2);

@@ -69,13 +69,13 @@ public class Pop implements Comparable<Pop>{
 		copy.mutateChance(Constants.MUT_RATE);
 		return copy;
 	}
-	public Pop makeCrossOverCopy(Pop parent1) {
+	public Pop makeCrossOverCopy(Pop parent1, Pop parent2) {
 		int[] newRoute = new int[route.length];
 		Set<Integer> list1 = new HashSet();
 		Set<Integer> list2 = new HashSet();
-		for (int i=0; i<route.length; i++) {
-			list1.add(i);
-			list2.add(i);
+		for (int k=0; k<route.length; k++) {
+			list1.add(k);
+			list2.add(k);
 		}
 		int i;
 		for(i=0; i<route.length/2; i++)
@@ -83,11 +83,16 @@ public class Pop implements Comparable<Pop>{
 			newRoute[i]=parent1.route[i];
 			list1.remove(i);
 		}
-		
-		for (Integer k: list1) {
-			newRoute[i]=k;
+		for(int j=0; j<route.length; j++)
+		{
+			if (list1.contains(parent2.route[j]))
+			newRoute[i]=parent2.route[j];
+			list1.remove(parent2.route[i]);
 			i++;
+			if (i == route.length)
+				break;
 		}
+	
 		Pop copy = new Pop(this.map,newRoute);
 		return copy;
 		
