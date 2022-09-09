@@ -50,7 +50,11 @@ public class MapGUI{
             public void actionPerformed(ActionEvent e) { 
                 if (map.getPoints().size() > 0) {
                     frame2.dispose();
-                    EvolutionLoop.loopWithMutation(new Map(map.getPoints()));
+                    try {
+                        EvolutionLoop.loopWithMutation(new Map(map.getPoints()));
+                    } catch(Exception ex) {
+                        System.out.println(ex);
+                    }
                 }
             }
         });
