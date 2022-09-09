@@ -47,7 +47,7 @@ public class MapGUI{
         doneButton = new JButton("Done");
         doneButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e) { 
                 if (map.getPoints().size() > 0) {
                     frame2.dispose();
                     EvolutionLoop.loopWithMutation(new Map(map.getPoints()));
