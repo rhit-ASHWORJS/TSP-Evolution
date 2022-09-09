@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class GenerationFactory {
 	public static Generation newGeneration(Generation oldGeneration)
@@ -50,7 +52,27 @@ public class GenerationFactory {
 				
 			
 		}
-	
+		else if(Constants.SELECTION_STRATEGY.equals("crossover"))
+		{
+			Random rand = new Random(popsToMake/2);
+			for(int popnum=0; popnum<popsToMake/2; popnum++)
+			{
+				int random = rand.nextInt();
+				int random2 = rand.nextInt();
+				while (random == random2) {
+					random2 = rand.nextInt();
+				}
+				Pop parent1 = oldGeneration.population.get(random);	
+				Pop parent2 = oldGeneration.population.get(random2);
+				Pop child1 = parent1.makeCrossOverCopy(parent2).makeMutatedCopy();
+				Pop child2 = parent2.makeCrossOverCopy(parent1).makeMutatedCopy();
+				
+					newPops.add(child1);
+					newPops.add(child2);
+
+
+			
+		}}
 		Generation newGeneration = new Generation(newPops, oldGeneration.map);
 		return newGeneration;
 	}

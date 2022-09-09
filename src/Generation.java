@@ -4,7 +4,7 @@ import java.util.Collections;
 public class Generation {
 	ArrayList<Pop> population;
 	Map map;
-	
+	private int avgDistance;
 	public Generation(int size, Map map) {
 		this.map = map;
 		population = new ArrayList<Pop>();
@@ -33,7 +33,7 @@ public class Generation {
 		
 		System.out.println("Shortest Distance:"+population.get(0).routeDistance());
 		
-		int avgDistance=0;
+		avgDistance=0;
 		for(int i=0; i<population.size(); i++)
 		{
 			avgDistance += population.get(i).routeDistance();
@@ -43,6 +43,16 @@ public class Generation {
 		System.out.println("Average Distance:"+avgDistance);
 		System.out.println("Worst Distance:"+population.get(population.size()-1).routeDistance());
 	}
+	public String getShortestDistance() {
+		return Integer.toString(population.get(0).routeDistance());
+	}
+	public String getWorstDistance() {
+		return Integer.toString(population.get(population.size()-1).routeDistance());
+	}
+	public String getAverageDistance() {
+		return Integer.toString(avgDistance);
+	}
+
 
 }
 

@@ -1,3 +1,5 @@
+import java.util.HashSet;
+import java.util.Set;
 
 public class Pop implements Comparable<Pop>{
 	Map map;
@@ -67,7 +69,28 @@ public class Pop implements Comparable<Pop>{
 		copy.mutateChance(Constants.MUT_RATE);
 		return copy;
 	}
-	
+	public Pop makeCrossOverCopy(Pop parent1) {
+		int[] newRoute = new int[route.length];
+		Set<Integer> list1 = new HashSet();
+		Set<Integer> list2 = new HashSet();
+		for (int i=0; i<route.length; i++) {
+			list1.add(i);
+			list2.add(i);
+		}
+		int i;
+		for(i=0; i<route.length/2; i++)
+		{
+			newRoute[i]=parent1.route[i];
+			list1.remove(i);
+		}
+		for (Integer k: list1) {
+			newRoute[i]=k;
+			i++;
+		}
+		Pop copy = new Pop(this.map,newRoute);
+		return copy;
+		
+	}
 	public int routeDistance()
 	{
 		int distance = 0;

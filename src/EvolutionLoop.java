@@ -1,9 +1,10 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class EvolutionLoop {
 	private static FittestRouteViewer routeViewer;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)throws FileNotFoundException {
 		String filename = Constants.PATH_CONF_FILE;
 		PropParser.load(filename);
 
@@ -18,9 +19,17 @@ public class EvolutionLoop {
 		}
 	}
 
-	public static void loopWithMutation(Map map) {
+	public static void loopWithMutation(Map map) throws FileNotFoundException {
 		routeViewer = new FittestRouteViewer();
 		routeViewer.setUpViewer();
+		CSVLogger logger = new CSVLogger("");
+		ArrayList<String> headers = new ArrayList<String>();
+		headers.add("Generation");
+		headers.add("Shortest Distance");
+		headers.add("Average Distance");
+		headers.add("Worst Distance");
+		
+		logger.createNewFile("output.CSV", headers);
 		
 		Generation initialGen = new Generation(Constants.POP_SIZE, map);
 
@@ -46,7 +55,17 @@ public class EvolutionLoop {
 		for (int i = 0; i < Constants.GENERATIONS; i++) {
 			System.out.println("Generation " + i);
 			generations.get(i).printGenStatistics();
+			if (i%10==0) {
+				ArrayList<String> contents = new ArrayList<String>();
+				contents.add(Integer.toString(i));
+				contents.add(generations.get(i).getShortestDistance());
+				contents.add(generations.get(i).getWorstDistance());
+				contents.add(generations.get(i).getAverageDistance());
+				logger.appendToFile("output.CSV", contents);
+			}
+			
 		}
+		logger.closeAll();
 	}
 
 }
