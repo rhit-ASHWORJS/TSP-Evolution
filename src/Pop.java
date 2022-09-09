@@ -83,6 +83,7 @@ public class Pop implements Comparable<Pop>{
 			newRoute[i]=parent1.route[i];
 			list1.remove(i);
 		}
+		
 		for (Integer k: list1) {
 			newRoute[i]=k;
 			i++;
