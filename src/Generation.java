@@ -50,6 +50,12 @@ public class Generation {
 		return Integer.toString(population.get(population.size()-1).routeDistance());
 	}
 	public String getAverageDistance() {
+		avgDistance=0;
+		for(int i=0; i<population.size(); i++)
+		{
+			avgDistance += population.get(i).routeDistance();
+		}
+		avgDistance /= population.size();
 		return Integer.toString(avgDistance);
 	}
 

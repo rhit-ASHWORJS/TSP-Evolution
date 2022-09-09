@@ -33,7 +33,7 @@ public class CSVLogger {
 				pathAsFile.mkdir();
 			}
 			
-			logFiles.put(filename, new PrintWriter( new File(path+"/"+filename)));
+			logFiles.put(filename, new PrintWriter( new File(path+""+filename)));
 			dataColumnMap.put(filename, columnHeaders.size() );
 			PrintWriter pw = logFiles.get(filename);
 			for (String header: columnHeaders) {
@@ -45,6 +45,7 @@ public class CSVLogger {
 
 	public void appendToFile(String filename, ArrayList<String> dataRows) {
 		for (String row: dataRows) {
+			System.out.println(row);
 			appendRowToFile(filename, row);
 		}
 	}

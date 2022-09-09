@@ -54,14 +54,15 @@ public class EvolutionLoop {
 		// Console output for testing
 		for (int i = 0; i < Constants.GENERATIONS; i++) {
 			System.out.println("Generation " + i);
-			generations.get(i).printGenStatistics();
+//			generations.get(i).printGenStatistics();
 			if (i%10==0) {
 				ArrayList<String> contents = new ArrayList<String>();
-				contents.add(Integer.toString(i));
-				contents.add(generations.get(i).getShortestDistance());
-				contents.add(generations.get(i).getWorstDistance());
-				contents.add(generations.get(i).getAverageDistance());
-				logger.appendToFile("output.CSV", contents);
+//				contents.add(Integer.toString(i));
+//				contents.add(generations.get(i).getShortestDistance());
+//				contents.add(generations.get(i).getWorstDistance());
+//				contents.add(generations.get(i).getAverageDistance());
+				logger.appendRowToFile("output.CSV", ""+Integer.toString(i)+","+generations.get(i).getShortestDistance()+","+generations.get(i).getAverageDistance()+","+generations.get(i).getWorstDistance());
+//				logger.appendToFile("output.CSV", contents);
 			}
 			
 		}
