@@ -81,16 +81,17 @@ public class Pop implements Comparable<Pop>{
 		for(i=0; i<route.length/2; i++)
 		{
 			newRoute[i]=parent1.route[i];
-			list1.remove(i);
+			list1.remove(parent1.route[i]);
 		}
 		for(int j=0; j<route.length; j++)
 		{
-			if (list1.contains(parent2.route[j]))
-			newRoute[i]=parent2.route[j];
-			list1.remove(parent2.route[i]);
-			i++;
-			if (i == route.length)
-				break;
+			if (list1.contains(parent2.route[j])) {
+				newRoute[i]=parent2.route[j];
+				list1.remove(parent2.route[j]);
+				i++;
+				if (i == route.length)
+					break;
+			}
 		}
 	
 		Pop copy = new Pop(this.map,newRoute);
