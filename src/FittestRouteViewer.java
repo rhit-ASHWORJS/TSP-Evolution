@@ -14,14 +14,15 @@ public class FittestRouteViewer{
 	private JLabel genNum;
 	private JLabel fitnessText;
 
-	public void setUpViewer() {
-		this.frame = new JFrame();
+	public void setUpViewer(JFrame frame) {
+		this.frame = frame;
 		this.frame.setTitle("FittestOrganismViewer");
-		this.frame.setSize(500, 550);
-		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.setLayout(new BorderLayout());
+//		this.frame.setSize(500, 550);
+//		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		this.frame.setLayout(new BorderLayout());
 
 		this.frame.add(component, BorderLayout.CENTER);
+
 
 		JPanel texts = new JPanel();
 
@@ -33,13 +34,18 @@ public class FittestRouteViewer{
 		this.frame.add(texts, BorderLayout.SOUTH);
 
 		this.frame.setVisible(true);
+		this.frame.setSize(550,600);
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frame.setLocation(600, 0);
 	}
 
 	public void updateRoute(Pop pop) {
 		this.component.setPop(pop);
 		genNum.setText("Gen: " + genIndex);
 		fitnessText.setText("Distance: " + pop.routeDistance());
-		this.component.repaint();
+//		this.component.repaint();
+		this.frame.repaint();
+		this.frame.setSize(550,600);
 	}
 
 	public void setGenIndex(int i) {
@@ -55,6 +61,7 @@ public class FittestRouteViewer{
 
 		@Override
 		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D) g;
 
 			int[] route = this.pop.route;

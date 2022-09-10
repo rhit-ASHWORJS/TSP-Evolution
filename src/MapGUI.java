@@ -22,9 +22,9 @@ public class MapGUI{
     public void runViewer(){
         this.frame2 = new JFrame();
         this.frame2.setTitle("MapInputGUI");
-        this.frame2.setSize(500, 550);
-        this.frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame2.setLayout(new BorderLayout());
+        this.frame2.setSize(550, 600);
+//        this.frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        this.frame2.setLayout(new BorderLayout());
         this.frame2.setLocation(600, 0);
 
         this.frame2.add(map, BorderLayout.CENTER);
@@ -49,9 +49,15 @@ public class MapGUI{
             @Override
             public void actionPerformed(ActionEvent e) { 
                 if (map.getPoints().size() > 0) {
-                    frame2.dispose();
+//                    frame2.dispose();
+//                	frame2.setVisible(false);
+//                	frame2.removeAll();
+                	frame2.remove(controls);
+                	frame2.remove(map);
+                	frame2.repaint();
                     try {
-                        EvolutionLoop.loopWithMutation(new Map(map.getPoints()));
+                    	EvolutionLoop evo = new EvolutionLoop();
+                        evo.loopWithMutation(new Map(map.getPoints()), frame2);
                     } catch(Exception ex) {
                         System.out.println(ex);
                     }
